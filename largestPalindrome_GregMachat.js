@@ -6,16 +6,25 @@
 // Directions:
 //  1. Rename this file, substituting "yourname" with your name
 //  2. Replace "yourname" with your name in the variable below
-exports.name = "yourname";
+exports.name = "Greg Machat";
 //  3. Add optimizations to the solution below
 //  4. Upload your optimized solution 
 
 
+
 isPalindrome = (num) => {
-    // determine if input value matches it's reversed value (i.e. check if it's a palindrome!)
+    //convert integer to string
     strNum = num.toString();
-    return strNum === strNum.split("").reverse().join("");
+    
+    //iterate through first and last number (moving inward by one each time)
+    //stops at half (Math.ceil(strNum.length / 2)) so it doesnt do unnecessary iterations past the success point
+    for (i = 0; i < Math.ceil(strNum.length / 2); i++) {
+        if (strNum[i] !== strNum[strNum.length - i - 1]) return false
+      }
+      return true
 }
+
+
 
 
 exports.getLargestPalindrome = (N) => {
@@ -40,8 +49,9 @@ exports.getLargestPalindrome = (N) => {
     }
 
     // return result
-    return largestPalidrome;
+    return largestPalindrome;
 }
+
 
 // input
 const N = 3;
@@ -53,3 +63,6 @@ const N = 3;
 console.time(exports.name)
 exports.getLargestPalindrome(N)
 console.timeEnd(exports.name)
+
+// console.log(this.getLargestPalindrome(N))
+
